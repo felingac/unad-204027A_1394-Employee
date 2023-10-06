@@ -13,10 +13,23 @@ async function getDb() {
     return db;
 }
 
+
+
 export async function getAllEmployees() {
   await getDb();
 
   const employees = await db.all("SELECT * FROM employees");
 
   return employees;
+}
+
+export async function postEmployees() {
+  await getDb();
+
+  const insertQuery = `
+      INSERT INTO employees (code, name, surname, identity, address, telephone, photo_id)
+      VALUES (?, ?, ?, ?, ?, ?, ?)
+    `;
+
+  return insertQuery;
 }

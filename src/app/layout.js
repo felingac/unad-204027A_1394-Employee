@@ -1,4 +1,5 @@
 import EmployeesAppBar from '@/components/EmployeesAppBar'
+import NavBarAppBar from '@/components/NavBarAppBar'
 import { Container, CssBaseline } from '@mui/material'
 import { Inter } from 'next/font/google'
 import './globals.css'
@@ -14,8 +15,8 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <CssBaseline />
-      <body className={inter.className}>
-        <EmployeesAppBar/>
+      <body className={inter.className}>        
+        <NavBarAppBar/>
         <Container sx={{my: 2}}>
           {children}
         </Container>

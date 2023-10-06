@@ -5,10 +5,13 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+
 
 export default function EmployeesTable({employees}) {
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} elevation={4}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -20,8 +23,7 @@ export default function EmployeesTable({employees}) {
             <TableCell align="right">Address</TableCell>
             <TableCell align="right">Telephone</TableCell>
             <TableCell align="right">Photo id</TableCell>
-            <TableCell align="right">Created At</TableCell>
-            <TableCell align="right">Updated At</TableCell>
+            <TableCell align="right">Actions</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -40,8 +42,18 @@ export default function EmployeesTable({employees}) {
                 <TableCell align="right">{employee.address}</TableCell>
                 <TableCell align="right">{employee.telephone}</TableCell>
                 <TableCell align="right">{employee.photo_id}</TableCell>
-                <TableCell align="right">{employee.created_at}</TableCell>
-                <TableCell align="right">{employee.updated_at}</TableCell>
+                <TableCell align="right">
+                  <EditIcon
+                    color="primary"
+                    title={'Editar'}
+                    style={{ cursor: 'pointer', marginLeft: '10px' }}
+                  />
+                <DeleteIcon
+                  color="error"
+                  //onClick={() => handleDeleteEmployee(employee.id)}
+                  style={{ cursor: 'pointer' }}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
